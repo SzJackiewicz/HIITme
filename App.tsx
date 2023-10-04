@@ -1,21 +1,21 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, SafeAreaView } from 'react-native'
 import { Colors } from './constants/styles/theme'
 import { Button } from './components/Button/Button'
-import { ModifyButton } from './components/ModifyButtons/ModifyButton'
 import { Row } from './components/Row/Row'
+import { ExerciseRow } from './components/ExerciseRow/ExerciseRow'
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Row title='Przygotowanie' />
       <Row title='Ilość ćwiczeń w interwale' />
+      <ExerciseRow exerciseNumber={1} />
       <Row title='Obwody' />
       <Row title='Przerwa między obwodami' />
-      <Row title='Prepare' />
       <Button text='START' size='add' />
       <StatusBar style='auto' />
-    </View>
+    </SafeAreaView>
   )
 }
 

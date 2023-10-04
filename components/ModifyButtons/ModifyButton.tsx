@@ -1,14 +1,32 @@
 import { View, StyleSheet, Text } from 'react-native'
-import { Colors, FontSizes } from '../../constants/styles/theme'
+import { Colors } from '../../constants/styles/theme'
 
 interface IButton {
   type: '+' | '-'
+  colorReverse?: boolean
 }
 
-export function ModifyButton({ type }: IButton) {
+export function ModifyButton({ type, colorReverse = false }: IButton) {
+  const buttonBackgroundColor = colorReverse ? Colors.secondary : Colors.accent
+  const fontColor = colorReverse ? Colors.accent : Colors.secondary
+
   return (
-    <View style={styles.buttonContainer}>
-      <Text style={styles.buttonInner}>{type}</Text>
+    <View
+      style={[
+        styles.buttonContainer,
+        { backgroundColor: buttonBackgroundColor },
+      ]}
+    >
+      <Text
+        style={[
+          styles.buttonInner,
+          {
+            color: fontColor,
+          },
+        ]}
+      >
+        {type}
+      </Text>
     </View>
   )
 }
@@ -18,14 +36,12 @@ const styles = StyleSheet.create({
     width: 45,
     height: 40,
     display: 'flex',
-    backgroundColor: Colors.accent,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
     paddingBottom: 5,
   },
   buttonInner: {
-    color: Colors.secondary,
     fontSize: 40,
     letterSpacing: 1,
   },

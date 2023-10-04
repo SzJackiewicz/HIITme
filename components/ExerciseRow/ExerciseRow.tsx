@@ -3,17 +3,17 @@ import { ModifyButton } from '../ModifyButtons/ModifyButton'
 import { Colors, FontSizes } from '../../constants/styles/theme'
 
 interface IExerciseRow {
-  title: string
+  exerciseNumber: number
 }
 
-export function ExerciseRow({ title }: IExerciseRow) {
+export function ExerciseRow({ exerciseNumber }: IExerciseRow) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>Ćwiczenie {exerciseNumber}</Text>
       <View style={styles.innerContainer}>
-        <ModifyButton type='-' />
+        <ModifyButton type='-' colorReverse />
         <Text style={styles.counter}>0</Text>
-        <ModifyButton type='+' />
+        <ModifyButton type='+' colorReverse />
       </View>
     </View>
   )
@@ -21,15 +21,15 @@ export function ExerciseRow({ title }: IExerciseRow) {
 
 const styles = StyleSheet.create({
   container: {
-    width: '70%',
-    gap: 10,
+    width: '60%',
+    gap: 7,
     alignItems: 'center',
     paddingBottom: 5,
     borderBottomWidth: 1,
     borderBottomColor: Colors.secondary,
   },
   title: {
-    fontSize: FontSizes.large,
+    fontSize: FontSizes.medium,
     color: Colors.secondary,
   },
   counter: {
