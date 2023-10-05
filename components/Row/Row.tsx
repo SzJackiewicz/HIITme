@@ -1,12 +1,22 @@
 import { View, StyleSheet, Text } from 'react-native'
 import { ModifyButton } from '../ModifyButtons/ModifyButton'
 import { Colors, FontSizes } from '../../constants/styles/theme'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '../../constants/types/types'
 
 interface IRow {
   title: string
+  type:
+    | 'rounds'
+    | 'prepareTime'
+    | 'roundsBreak'
+    | 'exerciseTime'
+    | 'exercisecount'
 }
 
-export function Row({ title }: IRow) {
+export function Row({ title, type }: IRow) {
+  const dispatch = useDispatch()
+  const counter = useSelector((state: RootState) => state.exercises[type])
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
