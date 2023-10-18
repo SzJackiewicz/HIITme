@@ -12,11 +12,14 @@ export default function App() {
   return (
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
-        <Row title='Przygotowanie' type={CounterTypes.PREPARETIME}/>
-        <Row title='Ilość ćwiczeń w interwale' type={CounterTypes.EXERCISECOUNT}/>
+        <Row title='Przygotowanie' type={CounterTypes.PREPARETIME} />
+        <Row
+          title='Ilość ćwiczeń w interwale'
+          type={CounterTypes.EXERCISECOUNT}
+        />
         <ExerciseRow exerciseNumber={1} />
-        <Row title='Obwody' type={CounterTypes.ROUNDS}/>
-        <Row title='Przerwa między obwodami' type={CounterTypes.BREAKTIME}/>
+        <Row title='Obwody' type={CounterTypes.ROUNDS} />
+        <Row title='Przerwa między obwodami' type={CounterTypes.BREAKTIME} />
         <Button text='START' size='add' />
         <StatusBar style='auto' />
       </SafeAreaView>

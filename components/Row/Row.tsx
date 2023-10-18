@@ -11,19 +11,19 @@ interface IRow {
     | 'prepareTime'
     | 'roundsBreak'
     | 'exerciseTime'
-    | 'exercisecount'
+    | 'exerciseCount'
 }
 
 export function Row({ title, type }: IRow) {
-  const dispatch = useDispatch()
   const counter = useSelector((state: RootState) => state.exercises[type])
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.innerContainer}>
-        <ModifyButton type='-' />
-        <Text style={styles.counter}>0</Text>
-        <ModifyButton type='+' />
+        <ModifyButton counterType='-' type={type} />
+        <Text style={styles.counter}>{counter}</Text>
+        <ModifyButton counterType='+' type={type} />
       </View>
     </View>
   )

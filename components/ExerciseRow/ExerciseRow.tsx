@@ -11,9 +11,9 @@ export function ExerciseRow({ exerciseNumber }: IExerciseRow) {
     <View style={styles.container}>
       <Text style={styles.title}>Ćwiczenie {exerciseNumber}</Text>
       <View style={styles.innerContainer}>
-        <ModifyButton type='-' colorReverse />
+        <ModifyButton counterType='-' colorReverse type='exerciseCount'  />
         <Text style={styles.counter}>0</Text>
-        <ModifyButton type='+' colorReverse />
+        <ModifyButton counterType='+' colorReverse type='exerciseCount'  />
       </View>
     </View>
   )
